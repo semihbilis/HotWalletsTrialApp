@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "72m6QCWEA1Y0ulHX7sxjtuTSxgJXzbtBjG9AIEuHg1M=",
+  "Hash": "bAXBjPoKvmq0O+HgLcta+tDbMweHzg2j52BUFwC9wCQ=",
   "Source": "HotWalletsTrialApp",
   "BasePath": "_content/HotWalletsTrialApp",
   "Mode": "Default",
@@ -17,6 +17,40 @@
   ],
   "Assets": [
     {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.css",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "dist/app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.css.map",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "dist/app.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\app.css.map"
+    },
+    {
       "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.js",
       "SourceId": "HotWalletsTrialApp",
       "SourceType": "Discovered",
@@ -32,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\app.js"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.js.map",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "dist/app.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\app.js.map"
     },
     {
       "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\images\\favicon.ico",
