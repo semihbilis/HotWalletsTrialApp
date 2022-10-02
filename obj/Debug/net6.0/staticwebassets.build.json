@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "72m6QCWEA1Y0ulHX7sxjtuTSxgJXzbtBjG9AIEuHg1M=",
+  "Source": "HotWalletsTrialApp",
+  "BasePath": "_content/HotWalletsTrialApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HotWalletsTrialApp\\wwwroot",
+      "Source": "HotWalletsTrialApp",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.js",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "dist/app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\app.js"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\images\\favicon.ico",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "dist/images/favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\images\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\favicon.ico",
+      "SourceId": "HotWalletsTrialApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\",
+      "BasePath": "_content/HotWalletsTrialApp",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ]
+}
