@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using HotWalletsTrialApp.Models.DataAccount;
+﻿using HotWalletsTrialApp.Models.Concrete;
+using HotWalletsTrialApp.Models.Repositories.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,7 +17,7 @@ namespace HotWalletsTrialApp.Pages
         private RepoAccount repoAccount = new RepoAccount();
 
         [BindProperty(SupportsGet = true)]
-        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         [BindProperty(SupportsGet = true)]
         public string Password { get; set; } = string.Empty;
 
@@ -25,15 +25,15 @@ namespace HotWalletsTrialApp.Pages
         {
         }
 
-        public IActionResult OnPostLogin(string username, string password)
+        public IActionResult OnPostLogin(string email, string password)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 return Partial(PathValidationPages + "FailedUsernamePassword");
 
-            Account signinAccount = repoAccount.Sign(username, password);
-            if (signinAccount != null)
+            Account loginAccount = repoAccount.LogIn(email, password);
+            if (loginAccount != null)
             {
-                Program.CurrentAccount = signinAccount;
+                Program.CurrentAccount = loginAccount;
                 return RedirectToPage("Main");
             }
             else

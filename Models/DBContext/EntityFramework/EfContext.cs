@@ -1,62 +1,39 @@
-﻿using HotWalletsTrialApp.Models.DataAccount;
-using HotWalletsTrialApp.Models.DataAuthorization;
-using HotWalletsTrialApp.Models.DataCategory;
-using HotWalletsTrialApp.Models.DataWallet;
-using HotWalletsTrialApp.Models.DataWalletTransaction;
-using System.Data.Entity;
+﻿using HotWalletsTrialApp.Models.Concrete;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
 
-namespace HotWalletsTrialApp.DatabaseContext.EntityFramework
+namespace HotWalletsTrialApp.Models.DBContext.EntityFramework
 {
     public class EfContext : DbContext
     {
-        public EfContext() : base("HotWallets")
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer(Program.ConnectionString);
         }
 
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Authorization> Authorizations { get; set; }
-        public DbSet<Wallet> Wallets { get; set; }
-        public DbSet<WalletTransaction> WalletTransactions { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Account> Account { get; set; }
+        public DbSet<WalletAuthorization> WalletAuthorization { get; set; }
+        public DbSet<Wallet> Wallet { get; set; }
+        public DbSet<WalletTransaction> WalletTransaction { get; set; }
+        public DbSet<Category> Category { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Account>().HasOne(a => a.Wallet).WithOne(w => w.Account).HasForeignKey<Wallet>(s=>s.AccountId);
+            modelBuilder.Entity<Account>().HasMany(a => a.AuthorizationList).WithOne(aut => aut.Account).HasForeignKey(s => s.AccountId);
 
-            modelBuilder.Entity<Account>()
-                .HasOptional<Wallet>(a => a.Wallet)
-                .WithRequired(w => w.Account);
-            modelBuilder.Entity<Account>()
-                .HasMany<Authorization>(a => a.AuthorizationList)
-                .WithRequired(aut => aut.Account);
+            modelBuilder.Entity<WalletAuthorization>().HasOne(aut => aut.Account).WithMany(a => a.AuthorizationList).HasForeignKey(s => s.AccountId);
+            modelBuilder.Entity<WalletAuthorization>().HasOne(aut => aut.Wallet).WithMany(w => w.AuthorizationList).HasForeignKey(s => s.WalletId);
 
-            modelBuilder.Entity<Authorization>()
-                .HasRequired<Account>(aut => aut.Account)
-                .WithMany(a => a.AuthorizationList);
-            modelBuilder.Entity<Authorization>()
-                .HasRequired<Wallet>(aut=>aut.Wallet)
-                .WithMany(w=>w.AuthorizationList);
+            modelBuilder.Entity<Wallet>().HasOne(w => w.Account).WithOne(a => a.Wallet).HasForeignKey<Wallet>(s => s.AccountId);
+            modelBuilder.Entity<Wallet>().HasMany(w => w.AuthorizationList).WithOne(aut => aut.Wallet).HasForeignKey(s => s.WalletId);
+            modelBuilder.Entity<Wallet>().HasMany(w => w.TransactionList).WithOne(wt => wt.Wallet).HasForeignKey(s => s.WalletId);
 
-            modelBuilder.Entity<Wallet>()
-                .HasRequired<Account>(w => w.Account)
-                .WithOptional(a => a.Wallet);
-            modelBuilder.Entity<Wallet>()
-                .HasMany(w=>w.AuthorizationList)
-                .WithRequired(aut=>aut.Wallet);
-            modelBuilder.Entity<Wallet>()
-                .HasMany<WalletTransaction>(w=>w.TransactionList)
-                .WithRequired(wt=>wt.Wallet);
+            modelBuilder.Entity<WalletTransaction>().HasOne(wt => wt.Wallet).WithMany(w => w.TransactionList).HasForeignKey(s => s.WalletId);
+            modelBuilder.Entity<WalletTransaction>().HasOne(wt => wt.Category).WithMany(c => c.WalletTransactionList).HasForeignKey(s => s.CategoryId);
 
-            modelBuilder.Entity<WalletTransaction>()
-                .HasRequired<Wallet>(wt => wt.Wallet)
-                .WithMany(w => w.TransactionList);
-            modelBuilder.Entity<WalletTransaction>()
-                .HasRequired<Category>(wt => wt.Category)
-                .WithMany(c => c.WalletTransactionList);
-
-            modelBuilder.Entity<Category>()
-                .HasMany<WalletTransaction>(c => c.WalletTransactionList)
-                .WithRequired(wt => wt.Category);
+            modelBuilder.Entity<Category>().HasMany(c => c.WalletTransactionList).WithOne(wt => wt.Category).HasForeignKey(s => s.CategoryId);
         }
     }
 }
