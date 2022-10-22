@@ -15,9 +15,9 @@ namespace HotWalletsTrialApp.Models.Repositories.Abstract
         #region ExtraFunction
         bool AddOrUpdate(T entity);
         T Get(T entity);
-        T Get(Expression<Func<T, bool>> filter);
-        List<T> GetList();
-        List<T> GetList(Expression<Func<T, bool>> filter);
+        T Get(Func<T, bool> filter);
+        List<T> GetList(Func<T, bool>? filter = null);
+        List<T> GetListWithDeleted(Func<T, bool>? filter = null);
         bool Delete(T entity);
         #endregion
     }

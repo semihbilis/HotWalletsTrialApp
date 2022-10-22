@@ -1,3 +1,11 @@
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.AssemblyInfo.cs
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.RazorAssemblyInfo.cache
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.RazorAssemblyInfo.cs
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\appsettings.json
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\HotWalletsTrialApp\package-lock.json
@@ -14,6 +22,7 @@ C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
@@ -44,14 +53,6 @@ C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\runtimes\w
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.csproj.AssemblyReference.cache
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.AssemblyInfoInputs.cache
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.AssemblyInfo.cs
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.csproj.CoreCompileInputs.cache
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.RazorAssemblyInfo.cache
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.RazorAssemblyInfo.cs
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\scopedcss\bundle\HotWalletsTrialApp.styles.css
@@ -61,4 +62,3 @@ C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\refint\Hot
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.pdb
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.genruntimeconfig.cache
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\ref\HotWalletsTrialApp.dll
-C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll

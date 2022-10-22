@@ -11,38 +11,40 @@ namespace HotWalletsTrialApp.Pages
         {
             _logger = logger;
         }
-        
+
         private readonly ILogger<IndexModel> _logger;
-        private const string PathValidationPages = "ValidationPages/";
+        public readonly string PathValidationPages = "ValidationPages";
         private RepoAccount repoAccount = new RepoAccount();
 
         [BindProperty(SupportsGet = true)]
-        public string Email { get; set; } = string.Empty;
+        public string Username { get; set; }
         [BindProperty(SupportsGet = true)]
-        public string Password { get; set; } = string.Empty;
+        public string Password { get; set; }
 
         public void OnGet()
         {
         }
 
-        public IActionResult OnPostLogin(string email, string password)
+        public IActionResult OnPostLogin(string username, string password)
         {
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-                return Partial(PathValidationPages + "FailedUsernamePassword");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                return Partial(PathValidationPages + "/FailedUsernamePassword");
+            }
 
-            Account loginAccount = repoAccount.LogIn(email, password);
+            Account loginAccount = repoAccount.LogIn(username, password);
             if (loginAccount != null)
             {
                 Program.CurrentAccount = loginAccount;
                 return RedirectToPage("Main");
             }
             else
-                return Partial(PathValidationPages + "FailedLogin");
+                return Partial(PathValidationPages + "/FailedLogin");
         }
 
         public PartialViewResult OnGetNotificationQuit()
         {
-            return Partial(PathValidationPages + "EmptyNotification");
+            return Partial(PathValidationPages + "/EmptyNotification");
         }
     }
 }

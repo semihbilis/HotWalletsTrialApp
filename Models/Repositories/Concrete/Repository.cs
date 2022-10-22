@@ -3,7 +3,9 @@ using HotWalletsTrialApp.Models.Concrete;
 using HotWalletsTrialApp.Models.DBContext.EntityFramework;
 using HotWalletsTrialApp.Models.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Diagnostics;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace HotWalletsTrialApp.Models.Repositories.Concrete
@@ -12,6 +14,7 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
     {
         #region Field
         private bool _Disposed = false;
+        private Func<T, bool> filterIsObjectNotDeleted => d => d.EndDate == null ? true : d.EndDate > DateTime.Now;
         #endregion
 
         #region Property
@@ -56,8 +59,8 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
 
         public bool Delete(int id)
         {
-            T removedEntity = Get(id);
-            return Delete(removedEntity);
+            T dEntity = Get(id);
+            return Delete(dEntity);
         }
 
         public T Get(int id)
@@ -97,7 +100,7 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             return Get(entity.Id);
         }
 
-        public T Get(Expression<Func<T, bool>> filter)
+        public T Get(Func<T, bool> filter)
         {
             try
             {
@@ -110,11 +113,14 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
         }
 
-        public List<T> GetList()
+        public List<T> GetList(Func<T, bool>? filter = null)
         {
             try
             {
-                return Context.Set<T>().ToList();
+                if (filter != null)
+                    return Context.Set<T>().Where(w => filterIsObjectNotDeleted(w) && filter(w)).ToList();
+                else
+                    return Context.Set<T>().Where(w => filterIsObjectNotDeleted(w)).ToList();
             }
             catch (Exception e)
             {
@@ -123,11 +129,14 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
         }
 
-        public List<T> GetList(Expression<Func<T, bool>> filter)
+        public List<T> GetListWithDeleted(Func<T, bool>? filter = null)
         {
             try
             {
-                return Context.Set<T>().Where(filter).ToList();
+                if (filter != null)
+                    return Context.Set<T>().Where(filter).ToList();
+                else
+                    return Context.Set<T>().ToList();
             }
             catch (Exception e)
             {
@@ -140,7 +149,9 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
         {
             try
             {
-                Context.Remove<T>(entity);
+                //Context.Remove<T>(entity);
+                entity.EndDate = DateTime.Now;
+                Update(entity);
                 return true;
             }
             catch (Exception e)
@@ -154,7 +165,11 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
         {
             try
             {
-                Context.RemoveRange(entities);
+                //Context.RemoveRange(entities);
+                foreach (var entity in entities)
+                {
+                    Delete(entity);
+                }
                 return true;
             }
             catch (Exception e)

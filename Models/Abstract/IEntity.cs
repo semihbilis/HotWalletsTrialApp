@@ -1,4 +1,4 @@
-﻿using HotWalletsTrialApp.Models.Concrete;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotWalletsTrialApp.Models.Abstract
 {

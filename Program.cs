@@ -1,15 +1,12 @@
 using HotWalletsTrialApp.Models;
-using HotWalletsTrialApp.Models.Abstract;
 using HotWalletsTrialApp.Models.Concrete;
 using HotWalletsTrialApp.Models.DBContext.EntityFramework;
-using HotWalletsTrialApp.Models.Repositories.Abstract;
-using HotWalletsTrialApp.Models.Repositories.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
     public static Account CurrentAccount = new Account();
-    public static string ConnectionString = string.Empty;
+    //public static string ConnectionString = string.Empty;
 
     private static void Main(string[] args)
     {
@@ -18,7 +15,8 @@ internal class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
 
-        ConnectionString = builder.Configuration.GetConnectionString("HotWalletsDbString");
+        //ConnectionString = builder.Configuration.GetConnectionString("HotWalletsDbString");
+        builder.Services.AddDbContext<EfContext>(opt=>opt.UseSqlServer(builder.Configuration.GetConnectionString("HotWalletsDbString")));
 
         var app = builder.Build();
 

@@ -1,5 +1,6 @@
 ﻿using HotWalletsTrialApp.Models.Abstract;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotWalletsTrialApp.Models.Concrete
 {
@@ -12,10 +13,13 @@ namespace HotWalletsTrialApp.Models.Concrete
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime? UpdateDate { get; set; }
         public DateTime? EndDate { get; set; }
+
+        [NotMapped]
+        public bool IsDeleted => EndDate == null ? false : EndDate < DateTime.Now;
         #endregion
 
         #region Relationships
-        public int CreateAccountId { get; set; } = Program.CurrentAccount.Id;
+        public int CreateAccountId { get; set; }
         #endregion
     }
 }
