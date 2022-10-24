@@ -3,6 +3,7 @@ using HotWalletsTrialApp.Models.Concrete;
 using HotWalletsTrialApp.Models.DBContext.EntityFramework;
 using HotWalletsTrialApp.Models.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
     {
         #region Field
         private bool _Disposed = false;
-        private Func<T, bool> filterIsObjectNotDeleted => d => d.EndDate == null ? true : d.EndDate > DateTime.Now;
+        private const string TitleDebugOutput = "|- HotWalletsDebug: ";
+        private readonly Func<T, bool> filterIsObjectNotDeleted = d => d.EndDate == null || d.EndDate > DateTime.Now;
         #endregion
 
         #region Property
@@ -37,7 +39,7 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return null;
             }
         }
@@ -52,26 +54,36 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return false;
             }
         }
 
-        public bool Delete(int id)
+        public bool Delete(T entity)
         {
-            T dEntity = Get(id);
-            return Delete(dEntity);
+            try
+            {
+                entity.EndDate = DateTime.Now;
+                Update(entity);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(TitleDebugOutput + e.Message);
+                return false;
+            }
         }
 
         public T Get(int id)
         {
             try
             {
-                return Context.Find<T>(id);
+                Func<T, bool> func = GetFilterWithFilterIsObjectNotDeleted(f => f.Id == id);
+                return Context.Set<T>().First(func);
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return null;
             }
         }
@@ -90,7 +102,7 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return false;
             }
         }
@@ -104,11 +116,25 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
         {
             try
             {
+                Func<T, bool> func = GetFilterWithFilterIsObjectNotDeleted(filter);
+                return Context.Set<T>().First(func);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(TitleDebugOutput + e.Message);
+                return null;
+            }
+        }
+
+        public T GetWithDeleted(Func<T, bool> filter)
+        {
+            try
+            {
                 return Context.Set<T>().First(filter);
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return null;
             }
         }
@@ -118,13 +144,16 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             try
             {
                 if (filter != null)
-                    return Context.Set<T>().Where(w => filterIsObjectNotDeleted(w) && filter(w)).ToList();
+                {
+                    Func<T, bool> func = GetFilterWithFilterIsObjectNotDeleted(filter);
+                    return Context.Set<T>().Where(func).ToList();
+                }
                 else
-                    return Context.Set<T>().Where(w => filterIsObjectNotDeleted(w)).ToList();
+                    return Context.Set<T>().Where(filterIsObjectNotDeleted).ToList();
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return null;
             }
         }
@@ -140,25 +169,15 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return null;
             }
         }
 
-        public bool Delete(T entity)
+        public bool Delete(int id)
         {
-            try
-            {
-                //Context.Remove<T>(entity);
-                entity.EndDate = DateTime.Now;
-                Update(entity);
-                return true;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                return false;
-            }
+            T dEntity = Get(id);
+            return Delete(dEntity);
         }
 
         public bool DeleteRange(List<T> entities)
@@ -174,10 +193,14 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return false;
             }
         }
+        #endregion
+
+        #region Methods
+        private Func<T, bool> GetFilterWithFilterIsObjectNotDeleted(Func<T, bool> filter) => x => filterIsObjectNotDeleted(x) && filter(x);
         #endregion
 
         #region ContextMethods
@@ -190,7 +213,7 @@ namespace HotWalletsTrialApp.Models.Repositories.Concrete
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(TitleDebugOutput + e.Message);
                 return false;
             }
         }

@@ -13,13 +13,11 @@ namespace HotWalletsTrialApp.Models.DBContext.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsettings.json")
-               .Build();
-            var connectionString = configuration.GetConnectionString("HotWalletsDbString");
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer(connectionString);
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("HotWalletsDbString"));
+            }
         }
 
         public DbSet<Account> Account { get; set; }

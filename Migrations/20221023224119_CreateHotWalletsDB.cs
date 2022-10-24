@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HotWalletsTrialApp.Migrations
 {
-    public partial class CreateHotWalletsDatabase : Migration
+    public partial class CreateHotWalletsDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

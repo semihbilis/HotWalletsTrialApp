@@ -1,0 +1,18 @@
+﻿<turbo-stream action="replace" target="notification">
+    <template>
+        <turbo-frame id="notification">
+            <div class="bg-yellow-300 rounded-2xl space-y-3 pb-5 overflow-hidden">
+                <div class="w-full">
+                    <div class="flex justify-between items-center text-base bg-blue-500 px-5 py-3 text-white">
+                        <label>@Model.Title</label>
+                        <a asp-page="@Model.PathQuitCommand" asp-page-handler="NotificationQuit">X</a>
+                    </div>
+                    <div class="h-1 bg-slate-200 w-full"></div>
+                </div>
+                <div class="mx-5">
+                    <label>@Model.Message</label>
+                </div>
+            </div>
+        </turbo-frame>
+    </template>
+</turbo-stream>

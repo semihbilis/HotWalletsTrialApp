@@ -1,0 +1,20 @@
+﻿@using HotWalletsTrialApp.Models.Concrete
+
+@model Account
+
+<turbo-stream action="replace" target="SignFrame">
+    <template>
+        <turbo-frame id="SignFrame">
+            <form method="post" class="flex flex-col space-y-5 mx-10">
+                <input name="username" type="text" placeholder="Username" title="Username" value="@Model.Username"
+                    class="rounded-full border-2 border-gray-300 focus:border-blue-500 text-center" />
+                <input name="password" type="password" placeholder="Password" title="Password" value="@Model.Password"
+                    class="rounded-full border-2 border-gray-300 focus:border-blue-500 text-center" />
+                <button asp-page-handler="SignIn" type="submit" title="Sign In"
+                    class="rounded-full bg-green-500 p-1 transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    Sign In
+                </button>
+            </form>
+        </turbo-frame>
+    </template>
+</turbo-stream>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotWalletsTrialApp.Migrations
 {
     [DbContext(typeof(EfContext))]
-    [Migration("20221022153530_CreateHotWalletsDatabase")]
-    partial class CreateHotWalletsDatabase
+    [Migration("20221023224119_CreateHotWalletsDB")]
+    partial class CreateHotWalletsDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
