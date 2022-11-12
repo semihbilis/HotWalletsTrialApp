@@ -1,0 +1,18 @@
+﻿@using HotWalletsTrialApp.Common.Helper
+@using HotWalletsTrialApp.Models.Concrete
+
+@model List<Wallet>
+
+<turbo-stream action="replace" target="ListWallet">
+    <template>
+        <turbo-frame id="ListWallet">
+            <div class="flex flex-wrap">
+                @foreach (Wallet wallet in Model)
+                {
+                    <partial name="@HelperFilePath.WalletPages.ViewWallet" model="@wallet" />
+                }
+                <turbo-frame id="CreateWallet"></turbo-frame>
+            </div>
+        </turbo-frame>
+    </template>
+</turbo-stream>

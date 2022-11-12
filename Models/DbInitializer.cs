@@ -3,9 +3,9 @@ using HotWalletsTrialApp.Models.DBContext.EntityFramework;
 
 namespace HotWalletsTrialApp.Models
 {
-    public static class DbInitializer
+    public class DbInitializer
     {
-        public static void Initialize(EfContext context)
+        public void Initialize(EfContext context)
         {
             Account firstAccount = new Account
             {
@@ -21,13 +21,19 @@ namespace HotWalletsTrialApp.Models
                 if (context.Account.Count() > 1)
                 {
                     Account firstAc = context.Account.First(a => a.Username == firstAccount.Username && a.Password == firstAccount.Password && a.Email == firstAccount.Email && a.FirstName == firstAccount.FirstName && a.LastName == firstAccount.LastName);
-                    context.Account.Remove(firstAc);
+                    if (firstAc != null)
+                    {
+                        context.Account.Remove(firstAc);
+                        context.SaveChanges();
+                    }
                 }
                 return;
             }
-
-            context.Account.Add(firstAccount);
-            context.SaveChanges();
+            else
+            {
+                context.Account.Add(firstAccount);
+                context.SaveChanges();
+            }
         }
     }
 }

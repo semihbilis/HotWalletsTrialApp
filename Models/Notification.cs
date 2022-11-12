@@ -1,16 +1,18 @@
-﻿namespace HotWalletsTrialApp.Models
+﻿namespace HotWalletsTrialApp.Models;
+public class Notification
 {
-    public class Notification
-    {
-        public Notification() { }
-        public Notification(string? title, string pathQuitCommand, string message) : this()
-        {
-            Title = title ?? string.Empty;
-            PathQuitCommand = pathQuitCommand ?? string.Empty;
-            Message = message ?? string.Empty;
-        }
-        public string Title { get; set; }
-        public string Message { get; set; }
-        public string PathQuitCommand { get; set; }
-    }
+  #region Constructor
+  public Notification(string title, string pathQuitCommand, string message)
+  {
+    Title = title ?? string.Empty;
+    PathQuitCommand = pathQuitCommand ?? string.Empty;
+    Message = message ?? string.Empty;
+  }
+  #endregion
+
+  #region Property
+  public string Title { get; set; }
+  public string Message { get; set; }
+  public string PathQuitCommand { get; set; }
+  #endregion
 }

@@ -62,3 +62,8 @@ C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\refint\Hot
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.pdb
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\HotWalletsTrialApp.genruntimeconfig.cache
 C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\ref\HotWalletsTrialApp.dll
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets\msbuild.HotWalletsTrialApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets\msbuild.build.HotWalletsTrialApp.props
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.HotWalletsTrialApp.props
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.HotWalletsTrialApp.props
+C:\Users\DELL\source\repos\GitHub\HotWalletsTrialApp\obj\Debug\net6.0\staticwebassets.pack.json

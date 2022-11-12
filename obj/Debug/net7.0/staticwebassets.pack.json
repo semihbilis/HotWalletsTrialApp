@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.css",
+      "PackagePath": "staticwebassets\\dist\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.css.map",
+      "PackagePath": "staticwebassets\\dist\\app.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.js",
+      "PackagePath": "staticwebassets\\dist\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\app.js.map",
+      "PackagePath": "staticwebassets\\dist\\app.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\dist\\images\\favicon.ico",
+      "PackagePath": "staticwebassets\\dist\\images\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\GitHub\\HotWalletsTrialApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.HotWalletsTrialApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.HotWalletsTrialApp.props",
+      "PackagePath": "build\\HotWalletsTrialApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.HotWalletsTrialApp.props",
+      "PackagePath": "buildMultiTargeting\\HotWalletsTrialApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.HotWalletsTrialApp.props",
+      "PackagePath": "buildTransitive\\HotWalletsTrialApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

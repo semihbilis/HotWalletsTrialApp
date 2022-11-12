@@ -1,0 +1,23 @@
+﻿@using HotWalletsTrialApp.Models.Concrete;
+
+@model Wallet
+
+<turbo-stream action="replace" target="ListWallet">
+    <template>
+        <turbo-frame id="Wallet_@Model.Id">
+            <div class="flex flex-col">
+                @if (!String.IsNullOrEmpty(Model.Icon))
+                {
+                    <input type="image" src="@Model.Icon" />
+                }
+                <label>@Model.Name</label>
+                <div class="flex flex-wrap">
+                    @foreach (Account account in Model.AuthorizationList.Select(s => s.Account))
+                    {
+                        <label>@account.FullName</label>
+                    }
+                </div>
+            </div>
+        </turbo-frame>
+    </template>
+</turbo-stream>

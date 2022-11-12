@@ -1,72 +1,66 @@
-﻿namespace HotWalletsTrialApp.Common.Helper
+﻿namespace HotWalletsTrialApp.Common.Helper;
+internal static class HelperFilePath
 {
-    internal static class HelperFilePath
-    {
-        internal const string FilePathIndex = "Index";
-        internal const string FilePathMain = "Main";
+  internal static string FileIndex = Consts.FileIndex;
+  internal static string FileMain = Consts.FileMain;
 
-        private const string FolderNotificationPagesPath = "NotificationPages";
-        internal static FolderNotificationPages NotificationPages = new(FolderNotificationPagesPath);
+  internal static FolderNotificationPages NotificationPages = new(Consts.FolderNotificationPages);
+  internal static FolderLoginPages LoginPages = new(Consts.FolderLoginPages);
+  internal static FolderWalletPages WalletPages = new(Consts.FolderWalletPages);
+}
 
-        private const string FolderLoginPagesPath = "LoginPages";
-        internal static FolderLoginPages LoginPages = new(FolderLoginPagesPath);
-    }
+internal class FolderLoginPages : BaseFolderModel
+{
+  #region Constructor
+  public FolderLoginPages(string folderPath) : base(folderPath) { }
+  #endregion
 
-    internal class FolderLoginPages
-    {
-        #region FileName
-        private const string NameSignIn = "SignIn";
-        private const string NameSignUp = "SignUp";
-        #endregion
+  #region Property
+  internal string SignIn => GetPath(Consts.FileSignIn);
+  internal string SignUp => GetPath(Consts.FileSignUp);
+  #endregion
+}
 
-        #region Constructor
-        public FolderLoginPages(string folderPath)
-        {
-            Path = folderPath;
-        }
-        #endregion
+internal class FolderNotificationPages : BaseFolderModel
+{
+  #region Constructor
+  public FolderNotificationPages(string folderPath) : base(folderPath) { }
+  #endregion
 
-        #region Property
-        internal readonly string Path;
-        internal string SignIn => GetPath(NameSignIn);
-        internal string SignUp => GetPath(NameSignUp);
-        #endregion
+  #region Property
+  internal string EmptyNotification => GetPath(Consts.FileEmptyNotification);
+  internal string ErrorNotification => GetPath(Consts.FileErrorNotification);
+  internal string WarningNotification => GetPath(Consts.FileWarningNotification);
+  internal string SuccessNotification => GetPath(Consts.FileSuccessNotification);
+  #endregion
+}
 
-        #region Method
-        private string GetPath(string fileName) => Path + "/" + fileName;
-        #endregion
-    }
+internal class FolderWalletPages : BaseFolderModel
+{
+  #region Constructor
+  public FolderWalletPages(string folderPath) : base(folderPath) { }
+  #endregion
 
-    internal class FolderNotificationPages
-    {
-        #region FileName
-        private const string NameEmptyNotification = "EmptyNotification";
-        private const string NameFailedLogin = "FailedLogin";
-        private const string NameFailedUsernamePassword = "FailedUsernamePassword";
-        private const string NameErrorNotification = "ErrorNotification";
-        private const string NameWarningNotification = "WarningNotification";
-        private const string NameSuccessNotification = "SuccessNotification";
-        #endregion
+  #region Property
+  internal string ViewWallet => GetPath(Consts.FileViewWallet);
+  internal string ListWallet => GetPath(Consts.FileListWallet);
+  #endregion
+}
 
-        #region Constructor
-        public FolderNotificationPages(string folderPath)
-        {
-            Path = folderPath;
-        }
-        #endregion
+internal abstract class BaseFolderModel
+{
+  #region Constructor
+  public BaseFolderModel(string folderPath)
+  {
+    Path = folderPath;
+  }
+  #endregion
 
-        #region Property
-        internal readonly string Path;
-        internal string EmptyNotification => GetPath(NameEmptyNotification);
-        internal string FailedLogin => GetPath(NameFailedLogin);
-        internal string FailedUsernamePassword => GetPath(NameFailedUsernamePassword);
-        internal string ErrorNotification => GetPath(NameErrorNotification);
-        internal string WarningNotification => GetPath(NameWarningNotification);
-        internal string SuccessNotification => GetPath(NameSuccessNotification);
-        #endregion
+  #region Property
+  internal readonly string Path;
+  #endregion
 
-        #region Method
-        private string GetPath(string fileName) => Path + "/" + fileName;
-        #endregion
-    }
+  #region Method
+  protected string GetPath(string fileName) => Path + "/" + fileName;
+  #endregion
 }
